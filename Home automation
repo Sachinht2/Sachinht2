@@ -1,0 +1,26 @@
+#include <thingProperties.h>
+#define Relaypin D4
+#define Switchpin D8
+int a;
+Void setup(){
+pinMode(Relaypin,OUTPUT);
+pinMode(Switchpin,INPUT_PULLUP);
+ArduinoCloud.begin(ArduinoIoTPerferredConnection);
+setDebugMessageLevel(2);
+ArduinoCloud.printDebugInfo();
+Void loop(){
+ArduinoCloud.update();
+a=digitalRead(Switchpin);
+if(a==LOW){
+if(toggle==0);
+digitalWrite(Relaypin,LOW);
+toggle=1;}
+else if(toggle==1){
+digitalWrite(D4,HIGH);
+toggle=0;}
+Void OnSwitchchange(){
+if(switch1==1){
+digitalWrite(Relaypin,LOW);
+toggle=1;}
+else{digitalWrite(Relaypin,HIGH);
+}
